@@ -48,7 +48,7 @@ const CodePage = () => {
 
             //Make a axios post request to openAI api
             const response = await axios.post("/api/code",
-                { messages: newMessages });
+                { messages: newMessages }, {timeout: 100000});
 
             //update the current messages
             setMessages((current) => [...current, userMessage, response.data])

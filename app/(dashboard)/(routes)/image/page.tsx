@@ -42,7 +42,7 @@ const ImagePage = () => {
         try {
             setImages([]);
             //Make a axios post request to openAI api
-            const response = await axios.post("/api/image", values);
+            const response = await axios.post("/api/image", values, {timeout: 100000});
 
             const urls = response.data.map((image: { url: string }) => image.url);
             setImages(urls);
